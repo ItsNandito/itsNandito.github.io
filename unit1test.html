@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Test: Unit 1 - Introduction to Law</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question p {
+            margin: 0 0 10px;
+        }
+        .answers label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        .result {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .reference {
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Test: Unit 1 - Introduction to Law</h1>
+
+        <div class="question" id="question1">
+            <p><strong>1. Which branch of government is responsible for enforcing laws?</strong></p>
+            <div class="answers">
+                <label><input type="radio" name="q1" value="A"> A) Legislative</label>
+                <label><input type="radio" name="q1" value="B"> B) Executive</label>
+                <label><input type="radio" name="q1" value="C"> C) Judicial</label>
+                <label><input type="radio" name="q1" value="D"> D) Administrative</label>
+            </div>
+            <div class="result" id="result1"></div>
+        </div>
+
+        <div class="question" id="question2">
+            <p><strong>2. What clause determines that federal law prevails over conflicting state laws?</strong></p>
+            <div class="answers">
+                <label><input type="radio" name="q2" value="A"> A) Commerce Clause</label>
+                <label><input type="radio" name="q2" value="B"> B) Supremacy Clause</label>
+                <label><input type="radio" name="q2" value="C"> C) Equal Protection Clause</label>
+                <label><input type="radio" name="q2" value="D"> D) Ordinance Clause</label>
+            </div>
+            <div class="result" id="result2"></div>
+        </div>
+
+        <button onclick="checkAnswers()">Submit Answers</button>
+    </div>
+
+    <script>
+        function checkAnswers() {
+            // Question 1
+            const q1 = document.querySelector('input[name="q1"]:checked');
+            const result1 = document.getElementById('result1');
+            if (q1) {
+                if (q1.value === 'B') {
+                    result1.textContent = 'Correct! The Executive branch enforces laws.';
+                    result1.className = 'result correct';
+                } else {
+                    result1.textContent = 'Incorrect. The correct answer is B) Executive.';
+                    result1.className = 'result incorrect';
+                }
+                result1.style.display = 'block';
+            }
+
+            // Question 2
+            const q2 = document.querySelector('input[name="q2"]:checked');
+            const result2 = document.getElementById('result2');
+            if (q2) {
+                if (q2.value === 'B') {
+                    result2.textContent = 'Correct! The Supremacy Clause ensures federal law prevails.';
+                    result2.className = 'result correct';
+                } else {
+                    result2.textContent = 'Incorrect. The correct answer is B) Supremacy Clause.';
+                    result2.className = 'result incorrect';
+                }
+                result2.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
